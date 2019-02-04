@@ -5,8 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="./css/bootstrap.min">
+<link rel="stylesheet" href="./css/mdb.min.css">
 </head>
 <body>
 	<h1>Hola</h1>
+
+<script type="text/javascript" href="./js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" href="./js/bootstrap.min.js"></script>
+<script type="text/javascript" href="./js/mdb.min.js"></script>
 </body>
 </html>
