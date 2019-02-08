@@ -8,7 +8,14 @@ public class Personaje {
 	private String ataque;
 	
 	public Personaje(String imagen, String nombre, String descripcion, String ataque) {
-		super();
+		this.imagen = imagen;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.ataque = ataque;
+	}
+
+	public Personaje(Integer id, String imagen, String nombre, String descripcion, String ataque) {
+		this.id = id;
 		this.imagen = imagen;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -54,5 +61,12 @@ public class Personaje {
 	public void setAtaque(String ataque) {
 		this.ataque = ataque;
 	}
+
+	@Override
+	public String toString() {
+		return "Personaje [id=" + id + ", imagen=" + imagen + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", ataque=" + ataque + "]";
+	}
+	
 	
 }
