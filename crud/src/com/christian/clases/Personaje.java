@@ -1,4 +1,4 @@
-package com.christian.models;
+package com.christian.clases;
 
 public class Personaje {
 	private Integer id;
