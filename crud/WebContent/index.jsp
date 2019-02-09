@@ -31,28 +31,41 @@
 		</thead>
 		
 		<tbody >
-		  <tr>
-		 	<td>1</td>
-		    <th scope="row"><img src="./img/goku.jpg" alt="nombre" width="150px" id="img1"></th>
-		    <td>Son Goku</td>
-		    <td>Gerrero Saiyan Criado en la tierra</td>
-		    <td>Kame Hame Ha</td>
-		    <td>
-		      <a href="#" class="btn btn-deep-orange btn-sm m-0">Elimnar</a>
-		      <a href="#" class="btn btn-indigo btn-sm m-0">Modificar</a>
-		    </td>
-		  </tr>
-		   <tr>
-		 	<td>1</td>
-		    <th scope="row"><img src="./img/freezer.jpg" alt="nombre" width="150px" id="img2"></th>
-		    <td>Freezer</td>
-		    <td>Emperador del Universo</td>
-		    <td>Bola Mortal</td>
-		    <td>
-		      <a href="#" class="btn btn-deep-orange btn-sm m-0">Elimnar</a>
-		      <a href="#" class="btn btn-indigo btn-sm m-0">Modificar</a>
-		    </td>
-		  </tr>
+		 <c:forEach var="personaje" items="${personajes}">
+		 	<tr>
+			 	<td>${personaje.id}</td>
+			    <th scope="row"><img src="${personaje.imagen}" alt="${personaje.nombre}" width="150px" id="img1"></th>
+			    <td>${personaje.nombre}</td>
+			    <td>${personaje.descripcion}</td>
+			    <td>${personaje.ataque}</td>
+			    <td>
+			      <a href="#" class="btn btn-deep-orange btn-sm m-0">Elimnar</a>
+			      <a href="#" class="btn btn-indigo btn-sm m-0">Modificar</a>
+			    </td>
+		    </tr>
+		 </c:forEach>
+<!-- 		  <tr> -->
+<!-- 		 	<td>1</td> -->
+<!-- 		    <th scope="row"><img src="./img/goku.jpg" alt="nombre" width="150px" id="img1"></th> -->
+<!-- 		    <td>Son Goku</td> -->
+<!-- 		    <td>Gerrero Saiyan Criado en la tierra</td> -->
+<!-- 		    <td>Kame Hame Ha</td> -->
+<!-- 		    <td> -->
+<!-- 		      <a href="#" class="btn btn-deep-orange btn-sm m-0">Elimnar</a> -->
+<!-- 		      <a href="#" class="btn btn-indigo btn-sm m-0">Modificar</a> -->
+<!-- 		    </td> -->
+<!-- 		  </tr> -->
+<!-- 		   <tr> -->
+<!-- 		 	<td>1</td> -->
+<!-- 		    <th scope="row"><img src="./img/freezer.jpg" alt="nombre" width="150px" id="img2"></th> -->
+<!-- 		    <td>Freezer</td> -->
+<!-- 		    <td>Emperador del Universo</td> -->
+<!-- 		    <td>Bola Mortal</td> -->
+<!-- 		    <td> -->
+<!-- 		      <a href="#" class="btn btn-deep-orange btn-sm m-0">Elimnar</a> -->
+<!-- 		      <a href="#" class="btn btn-indigo btn-sm m-0">Modificar</a> -->
+<!-- 		    </td> -->
+<!-- 		  </tr> -->
 		</tbody>
 	</table>
 </div>

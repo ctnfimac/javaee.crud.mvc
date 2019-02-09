@@ -1,8 +1,8 @@
 <Context>
-	<Resource name="jdbc/Personaje" auth="Container" type="javax.sql.DataSource"
+	<Resource name="jdbc/personaje" auth="Container" type="javax.sql.DataSource"
 		maxActive="15" maxIdle="3" maxWait="5000"
 		username="root" password=""
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3006/dbz" >
+		url="jdbc:mysql://localhost:3306/dbz" >
 	</Resource> 
 </Context>
