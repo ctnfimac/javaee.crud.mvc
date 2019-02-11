@@ -21,10 +21,10 @@ import com.christian.models.PersonajeModel;
 
 
 /**
- * Servlet implementation class ProductosController
+ * Servlet implementation class PersonajesController
  */
-@WebServlet("/ProductosController")
-public class ProductosController extends HttpServlet {
+@WebServlet("/PersonajesController")
+public class PersonajesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Resource(name="jdbc/personaje")
@@ -59,10 +59,13 @@ public class ProductosController extends HttpServlet {
 		String instruccion = request.getParameter("instruccion");
 		
 		if(instruccion == null ) instruccion = "mostrar";
-		System.out.println("instruccion: " + instruccion);
+	
 		switch(instruccion){
 			case "mostrar":
 				mostrarPersonajes(request,response);
+				break;
+			case "agregar":
+				System.out.println("agregando producto");
 				break;
 			default:
 				break;

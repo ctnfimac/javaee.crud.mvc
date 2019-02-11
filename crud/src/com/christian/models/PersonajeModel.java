@@ -23,12 +23,10 @@ public class PersonajeModel {
 		Statement statement = null;
 		ResultSet resultado = null;
 		
-		
 		conexion = origenDatos.getConnection();
 		statement = conexion.createStatement();
 		String sql = "SELECT * FROM personaje";
 		resultado = statement.executeQuery(sql);
-		System.out.println("llegue acá");
 		while(resultado.next()){
 			Integer id = resultado.getInt("id");
 			String imagen = resultado.getString("imagen");
