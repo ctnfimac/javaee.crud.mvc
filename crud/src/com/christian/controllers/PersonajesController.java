@@ -42,8 +42,9 @@ public class PersonajesController extends HttpServlet {
 	private PersonajeModel personajeModel;
 	
 	private final String ROOT = "C:/Users/christian/Documents/Git-Github/javaee.crud.mvc/crud/WebContent/img/";
-	private final String DB_IMG_ROOT = "./img/";
-       
+	private final String DB_IMG_ROOT = "img/";
+	private final String PATH_IMG_DELETE = "C:/Users/christian/Documents/Git-Github/javaee.crud.mvc/crud/WebContent/";
+   
     /**
      * @throws ServletException 
      * @see HttpServlet#HttpServlet()
@@ -88,16 +89,20 @@ public class PersonajesController extends HttpServlet {
 			case "agregar":
 				try {
 					agregarPersonaje(request,response);
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (ServletException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				break;
+			case "eliminar":
+				eliminarPersonaje(request,response);
+				break;
+				
 			default:
+				mostrarPersonajes(request,response);
 				break;
 		}
 	}
+
 
 
 	private void mostrarPersonajes(HttpServletRequest request, HttpServletResponse response) {
@@ -138,6 +143,18 @@ public class PersonajesController extends HttpServlet {
 		//https://stackoverflow.com/questions/16913514/refresh-project-in-eclipse-when-a-new-file-is-added
 	}
 	
+	
+	private void eliminarPersonaje(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		personajeModel.eliminarPersonaje(id);
+		String imgDir = PATH_IMG_DELETE + request.getParameter("img");
+//		System.out.println(imgDir);
+		File imagenAeliminar = new File(imgDir);
+		imagenAeliminar.delete();
+		mostrarPersonajes(request,response);
+	}
+
 	
 
 }

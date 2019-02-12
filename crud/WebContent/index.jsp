@@ -33,6 +33,11 @@
 			
 			<tbody >
 			 <c:forEach var="personaje" items="${personajes}">
+			 	<c:url var="linkELiminarPersonaje" value="PersonajesController">
+			 		<c:param name="instruccion" value="eliminar"></c:param>
+			 		<c:param name="id" value="${personaje.id}"></c:param>
+			 		<c:param name="img" value="${personaje.imagen}"></c:param>
+			 	</c:url>
 			 	<tr>
 				 	<td>${personaje.id}</td>
 				    <th scope="row"><img src="${personaje.imagen}" alt="${personaje.nombre}" width="150px" id="img1"></th>
@@ -40,7 +45,7 @@
 				    <td>${personaje.descripcion}</td>
 				    <td>${personaje.ataque}</td>
 				    <td>
-				      <a href="#" class="btn btn-deep-orange btn-sm m-0">Elimnar</a>
+				      <a href="${linkELiminarPersonaje}" class="btn btn-deep-orange btn-sm m-0">Elimnar</a>
 				      <a href="#" class="btn btn-indigo btn-sm m-0">Modificar</a>
 				    </td>
 			    </tr>

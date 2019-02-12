@@ -56,4 +56,21 @@ public class PersonajeModel {
 		statement.close();
 		conexion.close();
 	}
+
+	public void eliminarPersonaje(Integer id) {
+		Connection conexion = null;
+		PreparedStatement statement = null;
+		try {
+			conexion = origenDatos.getConnection();
+			String sql = "DELETE FROM personaje WHERE id = ? ";
+			statement = conexion.prepareStatement(sql);
+			statement.setInt(1, id);
+			statement.execute();
+			
+			conexion.close();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
 }
