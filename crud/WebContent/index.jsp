@@ -3,16 +3,14 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Insert title here</title>
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/mdb.min.css">
+</head>
 <body>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Insert title here</title>
-		 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/mdb.min.css">
-	</head>
-
-
 	<nav class="navbar navbar-dark primary-color">
 	  <a class="navbar-brand" href="http://christianperalta.com" target="_blank">Christian Peralta</a>
 	</nav>
@@ -62,7 +60,7 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form action="PersonajesController" method="post">
+	      <form action="PersonajesController" method="post" enctype="multipart/form-data">
 	      <div class="modal-body mx-3">
 	     	 <div class="input-group">
 			  <div class="input-group-prepend">
@@ -79,13 +77,13 @@
 	        </div>
 	
 	        <div class="md-form mb-4">
-	          <input type="password" id="defaultForm-pass" class="form-control validate">
-	          <label for="defaultForm-pass">Descripción</label>
+	          <input type="text" id="descripcion" name="descripcion" class="form-control validate">
+	          <label for="descripcion">Descripción</label>
 	        </div>
 	
 			<div class="md-form mb-4">
-	          <input type="text" id="ataque" class="form-control validate">
-	          <label for="defaultForm-pass">Ataque</label>
+	          <input type="text" id="ataque" name="ataque" class="form-control validate">
+	          <label for="ataque">Ataque</label>
 	          <input type="hidden" name="instruccion" value="agregar">
 	        </div>
 	      </div>
