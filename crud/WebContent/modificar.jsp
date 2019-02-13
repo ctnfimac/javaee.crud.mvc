@@ -24,20 +24,20 @@
 			    <label class="custom-file-label" for="imagen">Choose file</label>
 			    
 			  </div>
-			  <img class="p-1" src="img/goku.jpg" width="180">
+			  <img class="p-1" src="${personaje.imagen}" width="180">
 			</div>
 	        <div class="md-form mb-5">
-	          <input type="text" id="nombre" name="nombre" class="form-control validate">
+	          <input type="text" id="nombre" name="nombre" value="${personaje.nombre}" class="form-control validate">
 	          <label for="nombre">Nombre</label>
 	        </div>
 	
 	        <div class="md-form mb-4">
-	          <input type="text" id="descripcion" name="descripcion" class="form-control validate">
+	          <input type="text" id="descripcion" name="descripcion" value="${personaje.descripcion}" class="form-control validate">
 	          <label for="descripcion">Descripción</label>
 	        </div>
 	
 			<div class="md-form mb-4">
-	          <input type="text" id="ataque" name="ataque" class="form-control validate">
+	          <input type="text" id="ataque" name="ataque" value="${personaje.ataque}" class="form-control validate">
 	          <label for="ataque">Ataque</label>
 	          <input type="hidden" name="instruccion" value="agregar">
 	        </div>

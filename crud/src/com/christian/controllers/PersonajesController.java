@@ -158,7 +158,8 @@ public class PersonajesController extends HttpServlet {
 
 	private void cargarProducto(HttpServletRequest request, HttpServletResponse response){
 		Integer id = Integer.valueOf(request.getParameter("id"));
-		//Personaje personaje = personajeModel.getPersonaje(request.getParameter("id"));
+		Personaje personaje = personajeModel.getPersonaje(id);
+		request.setAttribute("personaje", personaje);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/modificar.jsp");
 		try {
 			dispatcher.forward(request, response);

@@ -73,4 +73,30 @@ public class PersonajeModel {
 			e.printStackTrace();
 		}	
 	}
+
+	public Personaje getPersonaje(Integer id_personaje) {
+		Personaje personaje = null;
+		Connection conexion = null;
+		Statement statement = null;
+		String sql = "SELECT * FROM personaje WHERE id = " + id_personaje;
+		try {
+			conexion = origenDatos.getConnection();
+			statement = conexion.createStatement();
+			ResultSet resultado =  statement.executeQuery(sql);
+			
+			while(resultado.next()){
+				Integer id = resultado.getInt("id");
+				String imagen = resultado.getString("imagen");
+				String nombre = resultado.getString("nombre");
+				String descripcion = resultado.getString("descripcion");
+				String ataque = resultado.getString("ataque");
+				personaje = new Personaje(id,imagen,nombre,descripcion,ataque);
+			}
+			conexion.close();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return personaje;
+	}
 }
