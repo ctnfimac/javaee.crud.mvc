@@ -96,13 +96,14 @@ public class PersonajesController extends HttpServlet {
 			case "eliminar":
 				eliminarPersonaje(request,response);
 				break;
-				
+			case "cargarProducto":
+				cargarProducto(request,response);
+				break;
 			default:
 				mostrarPersonajes(request,response);
 				break;
 		}
 	}
-
 
 
 	private void mostrarPersonajes(HttpServletRequest request, HttpServletResponse response) {
@@ -155,6 +156,15 @@ public class PersonajesController extends HttpServlet {
 		mostrarPersonajes(request,response);
 	}
 
-	
+	private void cargarProducto(HttpServletRequest request, HttpServletResponse response){
+		Integer id = Integer.valueOf(request.getParameter("id"));
+		//Personaje personaje = personajeModel.getPersonaje(request.getParameter("id"));
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/modificar.jsp");
+		try {
+			dispatcher.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
