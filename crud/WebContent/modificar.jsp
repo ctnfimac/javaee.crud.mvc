@@ -21,6 +21,7 @@
 			  <div class="custom-file">
 			 	 
 			    <input type="file" class="custom-file-input" name="imagen" id="imagen">
+			    <input type="hidden" name="imagen_old" id="imagen_old" value="${personaje.imagen}">
 			    <label class="custom-file-label" for="imagen">Choose file</label>
 			    
 			  </div>
@@ -39,7 +40,8 @@
 			<div class="md-form mb-4">
 	          <input type="text" id="ataque" name="ataque" value="${personaje.ataque}" class="form-control validate">
 	          <label for="ataque">Ataque</label>
-	          <input type="hidden" name="instruccion" value="agregar">
+	          <input type="hidden" name="id" value="${personaje.id}">
+	          <input type="hidden" name="instruccion" value="modificar">
 	        </div>
 	      </div>
 	      <div class="modal-footer d-flex justify-content-center">

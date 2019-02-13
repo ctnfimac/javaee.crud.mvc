@@ -99,4 +99,27 @@ public class PersonajeModel {
 		}
 		return personaje;
 	}
+
+	public void modificarPersonaje(Personaje personaje) {
+		Connection conexion = null;
+		PreparedStatement statement = null;
+		String sql = "UPDATE personaje SET imagen = ?, nombre = ?, descripcion = ?, ataque = ? "
+					+ " WHERE id = ?";
+		try {
+			conexion = origenDatos.getConnection();
+			statement = conexion.prepareStatement(sql);
+			statement.setString(1, personaje.getImagen());
+			statement.setString(2, personaje.getNombre());
+			statement.setString(3, personaje.getDescripcion());
+			statement.setString(4, personaje.getAtaque());
+			statement.setInt(5, personaje.getId());
+			statement.execute();
+			
+			conexion.close();
+			statement.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }

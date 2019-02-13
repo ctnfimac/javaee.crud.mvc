@@ -99,13 +99,16 @@ public class PersonajesController extends HttpServlet {
 			case "cargarProducto":
 				cargarProducto(request,response);
 				break;
+			case "modificar":
+				modificarProducto(request,response);
+				break;
 			default:
 				mostrarPersonajes(request,response);
 				break;
 		}
 	}
 
-
+	
 	private void mostrarPersonajes(HttpServletRequest request, HttpServletResponse response) {
 		List<Personaje> personajes = null;
 		try {
@@ -146,11 +149,9 @@ public class PersonajesController extends HttpServlet {
 	
 	
 	private void eliminarPersonaje(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		personajeModel.eliminarPersonaje(id);
 		String imgDir = PATH_IMG_DELETE + request.getParameter("img");
-//		System.out.println(imgDir);
 		File imagenAeliminar = new File(imgDir);
 		imagenAeliminar.delete();
 		mostrarPersonajes(request,response);
@@ -167,5 +168,41 @@ public class PersonajesController extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
+	private void modificarProducto(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			Integer id = Integer.valueOf(request.getParameter("id"));
+			String imagen = request.getParameter("imagen_old");
+			Part filePart = request.getPart("imagen");
+			String nombre = request.getParameter("nombre");
+			String descripcion = request.getParameter("descripcion");
+			String ataque = request.getParameter("ataque");
+			
+			if(Paths.get(filePart.getSubmittedFileName()).getFileName().toString().equals("")) 
+				System.out.println("imagen vacia");
+			else {
+				//aca elimino la imagen vieja
+				String imgDir = PATH_IMG_DELETE + imagen;
+				File imagenAeliminar = new File(imgDir);
+				imagenAeliminar.delete();
+				
+				//acá guardo la imagen nueva
+				String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+				File dir = new File(ROOT);
+				File file = File.createTempFile("img","-"+fileName,dir);
+				imagen = DB_IMG_ROOT + file.getName();
+				try (InputStream input = filePart.getInputStream()){
+				    Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+				}
+			}
+			//System.out.println("id:" + id + "\n imagen: " + imagen + "\n nombre:" + nombre + "\n descripcion: " + descripcion + "\n ataque: " + ataque);
+			Personaje personaje = new Personaje(id,imagen,nombre,descripcion,ataque);
+			personajeModel.modificarPersonaje(personaje);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		mostrarPersonajes(request,response);
+	}
+
 
 }
